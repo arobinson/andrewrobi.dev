@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+---
+
+<Base title="Andrew Robinson">
+  <h1>Frontend mechanics, measured.</h1>
+  <p>
+    I am a software architect who likes to go under the covers: how frameworks
+    actually schedule work, where performance lives and dies, and how to build
+    software that stands the test of time. I benchmark before I believe, and I
+    write down the why.
+  </p>
+  <h2>Recent posts</h2>
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+        </time>
+      </li>
+    ))}
+  </ul>
+</Base>

@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Frontend mechanics, measured.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="alternate" type="application/rss+xml" title="Andrew Robinson" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <header class="site">
+      <a class="name" href="/">Andrew Robinson</a>
+      <nav>
+        <a href="/blog/">Posts</a>
+        <a href="/rss.xml">RSS</a>
+        <a href="https://github.com/arobinson">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site">
+      Code MIT. Content CC BY 4.0. Measured, not eyeballed.
+    </footer>
+  </body>
+</html>
