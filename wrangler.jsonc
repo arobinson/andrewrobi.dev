@@ -1,0 +1,8 @@
+{
+  // Cloudflare Workers config: serve the Astro build output as static assets.
+  "name": "andrewrobi-dev",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
