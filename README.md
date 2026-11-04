@@ -6,9 +6,9 @@ Built with [Astro](https://astro.build), deployed on Cloudflare Pages.
 
 ## Development
 
-Requires [pnpm](https://pnpm.io). Node is pinned per-project via `.npmrc`
-(`use-node-version`), so pnpm fetches the right Node automatically. No global
-Node install needed.
+Requires [pnpm](https://pnpm.io) and Node 22 on your PATH (version pinned in
+`.nvmrc`, which Cloudflare Pages also reads). Build-script approvals for
+esbuild and sharp live in `pnpm-workspace.yaml` (`allowBuilds`).
 
 ```bash
 pnpm install

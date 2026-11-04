@@ -1,5 +1,3 @@
-executionEnv:
-  nodeVersion: 22.20.0
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
+allowBuilds:
+  esbuild: true
+  sharp: true
